@@ -1,0 +1,29 @@
+Possible Permutations: 24
+Reno SanFrancisco SaltLakeCity Seattle LasVegas Reno     Invalid Path 
+Reno SanFrancisco SaltLakeCity LasVegas Seattle Reno     Invalid Path 
+Reno SanFrancisco Seattle SaltLakeCity LasVegas Reno     Cost (In Gallons): 67.875
+Reno SanFrancisco Seattle LasVegas SaltLakeCity Reno     Invalid Path 
+Reno SanFrancisco LasVegas Seattle SaltLakeCity Reno     Invalid Path 
+Reno SanFrancisco LasVegas SaltLakeCity Seattle Reno     Cost (In Gallons): 68.55
+Reno SaltLakeCity SanFrancisco Seattle LasVegas Reno     Invalid Path 
+Reno SaltLakeCity SanFrancisco LasVegas Seattle Reno     Invalid Path 
+Reno SaltLakeCity Seattle SanFrancisco LasVegas Reno     Cost (In Gallons): 79.1
+Reno SaltLakeCity Seattle LasVegas SanFrancisco Reno     Invalid Path 
+Reno SaltLakeCity LasVegas Seattle SanFrancisco Reno     Invalid Path 
+Reno SaltLakeCity LasVegas SanFrancisco Seattle Reno     Cost (In Gallons): 75.525
+Reno Seattle SaltLakeCity SanFrancisco LasVegas Reno     Invalid Path 
+Reno Seattle SaltLakeCity LasVegas SanFrancisco Reno     Cost (In Gallons): 68.55
+Reno Seattle SanFrancisco SaltLakeCity LasVegas Reno     Invalid Path 
+Reno Seattle SanFrancisco LasVegas SaltLakeCity Reno     Cost (In Gallons): 75.525
+Reno Seattle LasVegas SanFrancisco SaltLakeCity Reno     Invalid Path 
+Reno Seattle LasVegas SaltLakeCity SanFrancisco Reno     Invalid Path 
+Reno LasVegas SaltLakeCity Seattle SanFrancisco Reno     Cost (In Gallons): 67.875
+Reno LasVegas SaltLakeCity SanFrancisco Seattle Reno     Invalid Path 
+Reno LasVegas Seattle SaltLakeCity SanFrancisco Reno     Invalid Path 
+Reno LasVegas Seattle SanFrancisco SaltLakeCity Reno     Invalid Path 
+Reno LasVegas SanFrancisco Seattle SaltLakeCity Reno     Cost (In Gallons): 79.1
+Reno LasVegas SanFrancisco SaltLakeCity Seattle Reno     Invalid Path 
+
+Most Efficient Path
+Reno SanFrancisco Seattle SaltLakeCity LasVegas Reno
+Cost (In Gallons): 67.875
