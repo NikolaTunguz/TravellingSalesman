@@ -1,6 +1,7 @@
-// Author: Nikola Tunguz
-// Date: May 10, 2023
-// Purpose: Homework 7 - Creating a graph data structure that can hold elements of any type.
+/*
+Author: Nikola Tunguz
+Purpose: Solve the travelling salesman problem using a custom made graph data structure.
+*/
 
 #include <iostream>
 #include <fstream>
@@ -9,11 +10,13 @@
 #include "Graph.h"
 using namespace std;
 
+//function declarations
 void print( string& value );
 int factorial(int n);
 void generatePermutations(string* cityArray, int numCities, int start, int end, string* permutationArray, int& permSize);
 
 int main(){
+    //variable declarations
     Graph<string> graph = Graph<string>();
     string cityArray[999];
     int numCities = 0;
@@ -53,18 +56,21 @@ int main(){
     int permSize = 0;
     int optimalWeight = -1;
     string optimalPath = "";
-    
+
     generatePermutations(cityArray,numCities,1,numCities,permutationArray, permSize);
   
+    //writing into solution text file
     ofstream fout("solution.txt");
     fout << "Possible Permutations: " << permSize << endl; 
 
+    //iterates through all permutations, writing into solution file as they go
     for(int i = 0; i < permSize; i++){
         stringstream ss(permutationArray[i]);
         string city1 = "", city2 = "", next = "";
         ss >> city1 >> city2;
         int currentWeight = 0;
 
+        //trys a path between two cities, if invalid throws an exception
         try{
             while(ss >> next){
                 currentWeight += graph.getEdgeWeight(city1,city2);
@@ -93,16 +99,20 @@ int main(){
 
 }
 
+//print function, passed into depth/breadth to "visit" nodes
 void print( string& value ){
     cout << value << " ";
 }
 
+//factorial function
 int factorial(int n){
     if(n == 1){
         return n;
     }
     return factorial(n-1) * n;
 }
+
+//generates all possible paths between cities, starting at the "first" city, stored in permutationArray
 void generatePermutations(string* cityArray, int numCities, int start, int end, string* permutationArray, int& permSize){
     if( start == end){
         string input = "";

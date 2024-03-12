@@ -1,10 +1,9 @@
-// Author: Nikola Tunguz
-// Date: May 10, 2023
-// Purpose: Graph data structure declarations.
-
+/*
+Author: Nikola Tunguz
+Purpose: Templated graph data structure declarations using an adjacency matrix.
+*/
 #ifndef GRAPH_H
 #define GRAPH_H
-
 
 #include <stack>
 #include <queue>
@@ -22,13 +21,17 @@ class Graph : public GraphInterface<LabelType>{
     void removeVertex(int vertexIndex);
 
     public:
+        //constructor and destructor
         Graph();   
         ~Graph();  
 
+        //basic getters
         int getNumVertices() const;  
         int getNumEdges() const;     
+        //adding and removing edges
         bool add(LabelType start, LabelType end, int edgeWeight); 
         bool remove(LabelType start, LabelType end); 
+        //retrieving information
         int getEdgeWeight(LabelType start, LabelType end) const; 
         void depthFirstTraversal(LabelType start, void visit(LabelType&) );
         void breadthFirstTraversal(LabelType start, void visit(LabelType&) );

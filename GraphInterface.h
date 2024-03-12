@@ -1,7 +1,7 @@
-// Author: Nikola Tunguz
-// Date: May 10, 2023
-// Purpose: Graph data structure interface.
-
+/*
+Author: Nikola Tunguz
+Purpose: Templated graph data structure interface.
+*/
 #ifndef GRAPH_INTERFACE
 #define GRAPH_INTERFACE
 

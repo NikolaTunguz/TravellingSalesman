@@ -1,19 +1,21 @@
-// Author: Nikola Tunguz
-// Date: May 10, 2023
-// Purpose: Graph data structure function implementations.
+/*
+Author: Nikola Tunguz
+Purpose: Templated graph data structure function implementations.
+*/
 
+//default constructor
 template <class LabelType>
 Graph<LabelType>::Graph(){
     numVertices = 0;
     numEdges = 0;
     vertexArray = new LabelType[MAX_VERTICES];
 
-    //I am aware this declaration sucks, but i couldn't think of another way using dynamic allocation 
     adjacencyMatrix = new int*[MAX_VERTICES];
     for( int i = 0; i < MAX_VERTICES; i++){
         adjacencyMatrix[i] = new int[MAX_VERTICES];
     }
 }    
+//destructor
 template <class LabelType>
 Graph<LabelType>::~Graph(){
     for(int i = 0; i < MAX_VERTICES; i++){
@@ -22,14 +24,17 @@ Graph<LabelType>::~Graph(){
     delete[] adjacencyMatrix;
 }
 
+//gets number of vertices in graph
 template <class LabelType>
 int Graph<LabelType>::getNumVertices() const{
     return numVertices;
 }
+//gets number of edges
 template <class LabelType>
 int Graph<LabelType>::getNumEdges() const{
     return numEdges;
 }
+//adding edge to the graph
 template <class LabelType>
 bool Graph<LabelType>::add(LabelType start, LabelType end, int edgeWeight) {
      
@@ -67,6 +72,7 @@ bool Graph<LabelType>::add(LabelType start, LabelType end, int edgeWeight) {
      
     return true;
 }
+//removing edges
 template <class LabelType>
 bool Graph<LabelType>::remove(LabelType start, LabelType end){
     // find indices
@@ -81,7 +87,7 @@ bool Graph<LabelType>::remove(LabelType start, LabelType end){
         }
     }
 
-    //if both vertices exist, remove, cant only have one exist, connection would not exist
+    //if both vertices exist, remove, cant only have one vertex exist, connection would not exist
     if(startIndex != -1 && endIndex != -1) {
         //if connection exists set them to 0
         if(adjacencyMatrix[startIndex][endIndex] != 0){
@@ -120,6 +126,7 @@ bool Graph<LabelType>::remove(LabelType start, LabelType end){
     //if doesnt exist, return false
     return false;
 }
+//retrieving edge weight information from two verticies
 template <class LabelType>
 int Graph<LabelType>::getEdgeWeight(LabelType start, LabelType end) const{
     int edgeWeight = 0;
@@ -135,7 +142,6 @@ int Graph<LabelType>::getEdgeWeight(LabelType start, LabelType end) const{
             endIndex = i;
         }
     }
-    
 
     //if vertex exist, find their connection weight
     if(startIndex != -1 && endIndex != -1){
@@ -154,6 +160,7 @@ int Graph<LabelType>::getEdgeWeight(LabelType start, LabelType end) const{
     return edgeWeight;
     
 }
+//traversing the graph depth first
 template <class LabelType>
 void Graph<LabelType>::depthFirstTraversal(LabelType start, void visit(LabelType&) ){
     int currentIndex = -1;
@@ -202,6 +209,7 @@ void Graph<LabelType>::depthFirstTraversal(LabelType start, void visit(LabelType
     }
 }
 
+//traversing the graph breadth first
 template <class LabelType>
 void Graph<LabelType>::breadthFirstTraversal(LabelType start, void visit(LabelType&) ){
     int currentIndex = -1;
@@ -240,6 +248,7 @@ void Graph<LabelType>::breadthFirstTraversal(LabelType start, void visit(LabelTy
     
 }
 
+//removing a vertex from the matrix (helper for remove)
 template <class LabelType>
 void Graph<LabelType>::removeVertex(int vertexIndex){
     //adjust matrix by shifting rows and columns
